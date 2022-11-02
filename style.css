@@ -63,12 +63,14 @@ canvas {
   top: 0;
   transform: translate(9.2vw, 0vw);
   background-image: url(assets/direcao_black-up.png);
+  filter: drop-shadow(-1px 6px 3px #000);
 }
 
 #down {
   bottom: 0;
   transform: translate(9.2vw, 0vw);
   background-image: url(assets/direcao_black-down.png);
+  filter: drop-shadow(-1px 6px 3px #000);
 }
 
 #right {
@@ -76,12 +78,14 @@ canvas {
   right: 0;
   transform: translate(0vw, 9vw);
   background-image: url(assets/direcao_black-right.png);
+  filter: drop-shadow(-1px 6px 3px #000);
 }
 
 #left {
   top: 0;
   transform: translate(0vw, 9vw);
   background-image: url(assets/direcao_black-Left.png);
+  filter: drop-shadow(-1px 6px 3px #000);
 }
 
 h3 {
