@@ -54,6 +54,7 @@ function drawGame() {
   drawSnake();
   changeSnakePosition();
   drawApple()
+  checkAppleCollision()
 
   let speed = 7; //The interval will be seven times a second
   setTimeout(drawGame, 1000 / speed); //update screen 7 times a second
@@ -76,6 +77,13 @@ let appleY=5;
 function drawApple() {
   ctx.fillStyle = "red";
   ctx.fillRect(appleX * tileCount, appleY * tileCount, tileSize, tileSize);
+}
+
+function checkAppleCollision(){
+    if(appleX==headX && appleY==headY){
+        appleX=Math.floor(Math.random()*tileCount);
+        appleY=Math.floor(Math.random()*tileCount);
+    }
 }
 
 drawGame();
