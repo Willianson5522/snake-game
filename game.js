@@ -6,7 +6,7 @@ let tileSize = 18; //define snake initial size
 let headX = 10;
 let headY = 10;
 
-//inicialize the speed of snake
+//inicialize the direction of snake moving
 let xvelocity = 0;
 let yvelocity = 0;
 
@@ -53,6 +53,7 @@ function drawGame() {
   clearScreen();
   drawSnake();
   changeSnakePosition();
+  drawApple()
 
   let speed = 7; //The interval will be seven times a second
   setTimeout(drawGame, 1000 / speed); //update screen 7 times a second
@@ -66,6 +67,15 @@ function clearScreen() {
 function drawSnake() {
   ctx.fillStyle = "green";
   ctx.fillRect(headX * tileCount, headY * tileCount, tileSize, tileSize);
+}
+
+//inicial apple location
+let appleX=5; 
+let appleY=5;
+
+function drawApple() {
+  ctx.fillStyle = "red";
+  ctx.fillRect(appleX * tileCount, appleY * tileCount, tileSize, tileSize);
 }
 
 drawGame();
