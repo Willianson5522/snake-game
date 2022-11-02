@@ -4,11 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Snake Game</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <canvas id="game" width="400" height="400"> </canvas>
+
+    <div class="wrapper">
+      <div class="center">
+        <div class="center-circle"></div>
+      </div>
+
+      <div class="up direction" id="up">
+        <div class="up-triangle" id="up"></div>
+      </div>
+
+      <div class="right direction" id="right">
+        <div class="right-triangle" id="right"></div>
+      </div>
+      <div class="down direction" id="down">
+        <div class="down-triangle" id="down"></div>
+      </div>
+
+      <div class="left direction" id="left">
+        <div class="left-triangle" id="left"></div>
+      </div>
+    </div>
 
     <script src="./game.js"></script>
   </body>

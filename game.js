@@ -1,5 +1,9 @@
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+const clickUp = document.getElementById("up");
+const clickDown = document.getElementById("down");
+const clickLeft = document.getElementById("left");
+const clickRight = document.getElementById("right");
 
 //increase snake size
 class snakePart {
@@ -178,5 +182,37 @@ function keyDown(event) {
     yvelocity = 0;
   }
 }
+
+clickUp.addEventListener("click", () => {
+  if (yvelocity === 1) {
+    return; //prevent snake from moving in opposite direction
+  }
+  xvelocity = 0;
+  yvelocity = -1;
+});
+
+clickDown.addEventListener("click", () => {
+  if (yvelocity === -1) {
+    return;
+  }
+  xvelocity = 0;
+  yvelocity = 1;
+});
+
+clickLeft.addEventListener("click", () => {
+  if (xvelocity === 1) {
+    return;
+  }
+  xvelocity = -1;
+  yvelocity = 0;
+});
+
+clickRight.addEventListener("click", () => {
+  if (xvelocity === -1) {
+    return;
+  }
+  xvelocity = 1;
+  yvelocity = 0;
+});
 
 drawGame();
