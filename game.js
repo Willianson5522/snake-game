@@ -4,6 +4,7 @@ const clickUp = document.getElementById("up");
 const clickDown = document.getElementById("down");
 const clickLeft = document.getElementById("left");
 const clickRight = document.getElementById("right");
+const reload = document.getElementById("reset");
 
 //increase snake size
 class snakePart {
@@ -213,6 +214,10 @@ clickRight.addEventListener("click", () => {
   }
   xvelocity = 1;
   yvelocity = 0;
+});
+
+reset.addEventListener("click", () => {
+  location.reload();
 });
 
 drawGame();

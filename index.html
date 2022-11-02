@@ -7,30 +7,24 @@
     <title>Snake Game</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
+
   <body>
-    <canvas id="game" width="400" height="400"> </canvas>
+    <div id="corpo">
+      <canvas id="game" width="400" height="400"> </canvas>
 
-    <div class="wrapper">
-      <div class="center">
-        <div class="center-circle"></div>
+      <div class="reset" id="reset">
+        <h3>RESET</h3>
       </div>
 
-      <div class="up direction" id="up">
-        <div class="up-triangle" id="up"></div>
-      </div>
+      <div class="pad">
+        <div class="up" id="up"></div>
 
-      <div class="right direction" id="right">
-        <div class="right-triangle" id="right"></div>
-      </div>
-      <div class="down direction" id="down">
-        <div class="down-triangle" id="down"></div>
-      </div>
+        <div class="right" id="right"></div>
+        <div class="down" id="down"></div>
 
-      <div class="left direction" id="left">
-        <div class="left-triangle" id="left"></div>
+        <div class="left" id="left"></div>
       </div>
     </div>
-
     <script src="./game.js"></script>
   </body>
 </html>
