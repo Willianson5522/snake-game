@@ -27,7 +27,7 @@ body {
 canvas {
   position: absolute;
   top: 0;
-  transform: translate(0vw, 15vh);
+  transform: translate(0vw, 10vh);
   box-shadow: black 20px 10px 50px; //elevate our canvas and add shadow
 }
 

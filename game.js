@@ -16,7 +16,7 @@ class snakePart {
 
 let speed = 7;
 let tileCount = 20;
-let tileSize = canvas.clientWidth / tileCount - 2;
+let tileSize = 400 / tileCount - 2;
 let headX = 10;
 let headY = 10;
 
@@ -90,8 +90,8 @@ function isGameOver() {
     ctx.font = "60px georgia";
     ctx.fillText(
       " Se fodeu! ",
-      canvas.clientWidth / 6.5,
-      canvas.clientHeight / 2
+      400 / 6.5,
+      400 / 2
     ); //position our text in center
   }
 
@@ -102,13 +102,13 @@ function isGameOver() {
 function drawScore() {
   ctx.fillStyle = "white"; // set our text color to white
   ctx.font = "15px verdena"; //set font size to 10px of font family verdena
-  ctx.fillText("Score: " + score, canvas.clientWidth - 70, 15); // position our score at right hand corner
+  ctx.fillText("Score: " + score, 400 - 70, 15); // position our score at right hand corner
 }
 
 // clear our screen
 function clearScreen() {
   ctx.fillStyle = "black"; // make screen black
-  ctx.fillRect(0, 0, canvas.clientWidth, canvas.clientHeight); // black color start from 0px left, right to canvas width and canvas height
+  ctx.fillRect(0, 0, 400, 400); // black color start from 0px left, right to canvas width and canvas height
 }
 
 function drawSnake() {
