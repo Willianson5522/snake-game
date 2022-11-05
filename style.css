@@ -24,8 +24,9 @@
 body {
   background-color: var(--BackgroundApp);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 #principal {
@@ -37,7 +38,7 @@ body {
   background-image: url(./assets/bg_snake.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 800px;
+  height: 100%;
   padding: 20px;
 }
 
