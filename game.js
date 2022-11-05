@@ -182,6 +182,9 @@ function keyDown(event) {
     xvelocity = 1;
     yvelocity = 0;
   }
+  if (event.key === "r") {
+    location.reload();
+  }
 }
 
 clickUp.addEventListener("click", () => {
