@@ -10,8 +10,8 @@
   --Tamanhobotao: 8vw;
   --TamanhoReset-H: 50px;
   --TamanhoReset-w: 200px;
-  --TamanhoPad: 230px;
-  --TamanhoCanvas:400px;
+  --TamanhoPad: 80%;
+  --TamanhoCanvas:100%;
 
   --TamanhoSetasUpDown:30%;
   --TamanhoSetasLeftRight:25%;
@@ -43,6 +43,7 @@ body {
 
 canvas {
   aspect-ratio: 1/1;
+  width: var(--TamanhoCanvas);
   background-color: rgb(34, 32, 165);
   border: 10px solid var(--ColorGeral);
 }
@@ -94,13 +95,6 @@ canvas {
 
 /* HOVER SETAS */
 
-h3 {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 26px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
 .reset {
   display: flex;
   align-items: center;
@@ -108,9 +102,10 @@ h3 {
   text-align: center;
   color: var(--ColorGeral);
   background-color: var(--ColorButtom);
-  width: var(--TamanhoReset-w);
-  height: var(--TamanhoReset-H);
+  padding: 3% 5% 3% 5%;
   border-radius: 10px;
+  letter-spacing: 2px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .reset:hover {
