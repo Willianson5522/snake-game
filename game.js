@@ -112,7 +112,7 @@ function clearScreen() {
 }
 
 function drawSnake() {
-  ctx.fillStyle = "red";
+  ctx.fillStyle = "green";
   //loop through our snakeparts array
   for (let i = 0; i < snakeParts.length; i++) {
     //draw snake parts
