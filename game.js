@@ -1,10 +1,11 @@
-const canvas = document.getElementById("game");
+// Replacing getElementById with querySelector to increase performance 
+const canvas = document.querySelector("#game");
 const ctx = canvas.getContext("2d");
-const clickUp = document.getElementById("up");
-const clickDown = document.getElementById("down");
-const clickLeft = document.getElementById("left");
-const clickRight = document.getElementById("right");
-const reload = document.getElementById("reset");
+const clickUp = document.querySelector("#up");
+const clickDown = document.querySelector("#down");
+const clickLeft = document.querySelector("#left");
+const clickRight = document.querySelector("#right");
+const reload = document.querySelector("#reset");
 
 //increase snake size
 class snakePart {
@@ -35,93 +36,84 @@ let appleY = 5;
 //scores
 let score = 0;
 
-// create game loop-to continously update screen
+// create game loop - to continuously update screen
 function drawGame() {
   changeSnakePosition();
+  
   // game over logic
   let result = isGameOver();
   if (result) {
-    // if result is true
     return;
   }
+  
   clearScreen();
   drawSnake();
   drawApple();
   checkCollision();
   drawScore();
+  
   setTimeout(drawGame, 1000 / speed); //update screen 7 times a second
 }
 
-//Game Over function
+// Game over function
 function isGameOver() {
   let gameOver = false;
   //check whether game has started
   if (yvelocity === 0 && xvelocity === 0) {
     return false;
+  } else if (
+    headX < 0 || //if snake hits left wall
+    headX === tileCount || //if snake hits right wall
+    headY < 0 || //if snake hits wall at the top
+    headY === tileCount //if snake hits wall at the bottom
+  ) {
+      gameOver = true;
   }
-  if (headX < 0) {
-    //if snake hits left wall
-    gameOver = true;
-  } else if (headX === tileCount) {
-    //if snake hits right wall
-    gameOver = true;
-  } else if (headY < 0) {
-    //if snake hits wall at the top
-    gameOver = true;
-  } else if (headY === tileCount) {
-    //if snake hits wall at the bottom
-    gameOver = true;
-  }
-
+  
   //stop game when snake crush to its own body
-
   for (let i = 0; i < snakeParts.length; i++) {
     let part = snakeParts[i];
     if (part.x === headX && part.y === headY) {
       //check whether any part of snake is occupying the same space
       gameOver = true;
-      break; // to break out of for loop
+      break;
     }
   }
-
   //display text Game Over
   if (gameOver) {
     ctx.fillStyle = "white";
-    ctx.font = "60px georgia";
+    ctx.font = "60px Georgia, serif";
     ctx.fillText(
-      " Se fodeu! ",
-      400 / 6.5,
-      400 / 2
+      "Se fodeu!",
+      canvas.width / 6.5,
+      canvas.height / 2
     ); //position our text in center
   }
-
   return gameOver; // this will stop execution of drawgame method
 }
 
-// score function
+//score function
 function drawScore() {
-  ctx.fillStyle = "white"; // set our text color to white
-  ctx.font = "15px verdena"; //set font size to 10px of font family verdena
-  ctx.fillText("Score: " + score, 400 - 70, 15); // position our score at right hand corner
+  ctx.fillStyle = "white";
+  ctx.font = "15px Verdana, sans-serif";
+  ctx.fillText("Score: " + score, canvas.width - 70, 15); // position our score at right hand corner
 }
 
-// clear our screen
+//clear our screen
 function clearScreen() {
-  ctx.fillStyle = "black"; // make screen black
-  ctx.fillRect(0, 0, 400, 400); // black color start from 0px left, right to canvas width and canvas height
+  ctx.fillStyle = "black";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function drawSnake() {
   ctx.fillStyle = "green";
-  //loop through our snakeparts array
   for (let i = 0; i < snakeParts.length; i++) {
-    //draw snake parts
     let part = snakeParts[i];
     ctx.fillRect(part.x * tileCount, part.y * tileCount, tileSize, tileSize);
   }
 
-  //add parts to snake --through push
-  snakeParts.push(new snakePart(headX, headY)); //put item at the end of list next to the head
+  //add parts to snake through push
+  snakeParts.push(new snakePart(headX, headY));
   if (snakeParts.length > tailLength) {
     snakeParts.shift(); //remove furthest item from  snake part if we have more than our tail size
   }
@@ -139,13 +131,13 @@ function drawApple() {
   ctx.fillRect(appleX * tileCount, appleY * tileCount, tileSize, tileSize);
 }
 
-// check for collision and change apple position
+//check for collision and change apple position
 function checkCollision() {
   if (appleX == headX && appleY == headY) {
     appleX = Math.floor(Math.random() * tileCount);
     appleY = Math.floor(Math.random() * tileCount);
-    tailLength++;
-    score++; //increase our score value
+    tailLength++; //increase size of snake
+    score++; //increase score value
   }
 }
 
