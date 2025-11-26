@@ -1,9 +1,37 @@
-# Snake Game
+# Snake Game (HTML5 Canvas + JavaScript)
 
-This is a simple implementation of the classic snake game. The game is built using Javascript and displayed using HTML5 canvas.
+## 🎮 Sobre o Projeto
 
-## How to Play
+Este é uma implementação clássica do jogo **Snake** (Cobrinha), desenvolvida inteiramente com **Vanilla JavaScript** e **HTML5 Canvas**. O projeto demonstra o domínio da lógica de programação fundamental, manipulação do DOM e renderização gráfica 2D sem o uso de frameworks externos.
 
-Use arrow keys or click on the respective buttons to change direction of the snake. The aim of the game is to eat as many red dots as possible while avoiding the walls and the snake's own body.
+## 🚀 Tecnologias Utilizadas
 
-To reset the game, click on the "Reset" button or press "R" on your keyboard.
+*   **HTML5 Canvas**: Para renderização gráfica performática.
+*   **Vanilla JavaScript (ES6+)**: Lógica do jogo, classes e manipulação de eventos.
+*   **CSS3**: Estilização da interface.
+
+## 🕹️ Como Jogar
+
+O objetivo é simples: coma a maçã vermelha para crescer e aumentar sua pontuação. Evite bater nas paredes ou no próprio corpo da cobra!
+
+### Controles
+
+*   **Setas do Teclado** (⬆️ ⬇️ ⬅️ ➡️) ou **WASD**: Controlam a direção da cobra.
+*   **Botões na Tela**: Controles de toque para dispositivos móveis ou mouse.
+*   **R**: Reinicia o jogo.
+
+## 🧠 Destaques de Implementação
+
+*   **Game Loop**: Implementação manual de um loop de jogo para atualização constante da tela (60fps target, ajustado pela velocidade).
+*   **Lógica de Colisão**: Algoritmos matemáticos simples para detectar colisão com bordas e auto-colisão.
+*   **Responsividade**: Suporte a controles via teclado e interface gráfica (botões).
+
+## 🛠️ Como Executar
+
+Basta abrir o arquivo `index.html` em qualquer navegador moderno.
+
+```bash
+# Se tiver python instalado, pode rodar um servidor simples
+python3 -m http.server
+# Acesse localhost:8000
+```
