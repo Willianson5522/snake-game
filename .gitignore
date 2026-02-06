@@ -1,11 +1,17 @@
 # Dependencies
 node_modules/
 
-# Build output
-dist/
-*.js
-*.js.map
-*.d.ts
+# Build output -tracked (needed for GitHub Pages)
+!dist/main.js
+!dist/game.js
+!dist/snake.js
+!dist/apple.js
+!dist/input.js
+!dist/highscore.js
+!dist/constants.js
+!dist/types.js
+dist/*.js.map
+dist/*.d.ts
 
 # IDE
 .vscode/
