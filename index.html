@@ -1,49 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snake Game</title>
+  <meta name="description" content="Jogo Snake moderno com design glassmorphism e efeitos neon. Use as setas ou WASD para controlar a cobra." />
+  <meta name="theme-color" content="#0a0a0f" />
+  <title>Snake Game - Neon Edition</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
+<body>
+  <main id="principal">
+    <!-- Game Title -->
+    <h1 class="game-title">SNAKE</h1>
 
-<body style="overflow: hidden;">
-
-  <div id="principal">
-
-    <canvas id="game" width="400" height="400"> </canvas>
-    <div class="reset" id="reset">
-      <h3>Reiniciar</h3>
+    <!-- HUD - Score Board -->
+    <div class="hud">
+      <div class="hud-item">
+        <div class="hud-label">Score</div>
+        <div class="hud-value score" id="hud-score">0</div>
+      </div>
+      <div class="hud-item">
+        <div class="hud-label">High Score</div>
+        <div class="hud-value highscore" id="hud-highscore">0</div>
+      </div>
+      <div class="hud-item">
+        <div class="hud-label">Time</div>
+        <div class="hud-value time" id="hud-time">00:00</div>
+      </div>
     </div>
-    <div class="pad">
+
+    <!-- Canvas Container -->
+    <div class="canvas-container">
+      <canvas id="game" width="320" height="320" tabindex="0" aria-label="Área de jogo Snake"></canvas>
       
-      <div class="up" id="up">
-        <img src="./assets/uP.svg" alt="up">
-      </div>
-
-      <div class="left-Right">
-  
-        <div class="left" id="left">
-          <img src="./assets/left.svg" alt="left">
+      <!-- Menu Screen -->
+      <div class="menu-screen" id="menu-screen">
+        <div class="menu-highscore">
+          <div class="menu-highscore-label">🏆 Recorde</div>
+          <div class="menu-highscore-value" id="menu-highscore">0</div>
         </div>
-
-        <div class="right" id="right">
-          <img src="./assets/right.svg" alt="right">
+        <p class="menu-subtitle">
+          Use as setas ou WASD para mover<br>
+          Pressione P para pausar
+        </p>
+        <div class="difficulty-selector">
+          <label for="difficulty">Dificuldade:</label>
+          <select id="difficulty" aria-label="Selecionar dificuldade">
+            <option value="EASY">Fácil</option>
+            <option value="MEDIUM" selected>Médio</option>
+            <option value="HARD">Difícil</option>
+          </select>
         </div>
-
+        <button class="btn btn-primary" id="btn-start">
+          <span>▶</span> Jogar
+        </button>
       </div>
-      <div class="down" id="down">
-        <img src="./assets/down.svg" alt="down">
+
+      <!-- Pause Overlay -->
+      <div class="pause-overlay hidden" id="pause-overlay">
+        <div class="pause-text">PAUSADO</div>
+        <button class="btn btn-primary" id="btn-resume">
+          Continuar
+        </button>
       </div>
 
+      <!-- Game Over Screen -->
+      <div class="game-over-screen hidden" id="game-over-screen">
+        <div class="game-over-title">SE FODEU</div>
+        <div class="final-score">
+          Score: <span class="final-score-value" id="final-score">0</span>
+        </div>
+        <div id="new-record" class="hidden" style="color: var(--neon-yellow); font-weight: 700;">
+          ⭐ NOVO RECORDE! ⭐
+        </div>
+        <div class="action-buttons">
+          <button class="btn btn-primary" id="btn-restart">
+            <span>↻</span> Jogar Novamente
+          </button>
+        </div>
+      </div>
     </div>
 
-    
+    <!-- Controls Section -->
+    <div class="controls-section">
+      <!-- D-Pad com setas originais -->
+      <div class="d-pad" role="group" aria-label="Controles direcionais">
+        <button class="d-pad-btn up" id="btn-up" aria-label="Mover para cima">
+          <img src="./assets/uP.svg" alt="Cima" width="40" height="40">
+        </button>
+        <button class="d-pad-btn left" id="btn-left" aria-label="Mover para esquerda">
+          <img src="./assets/left.svg" alt="Esquerda" width="40" height="40">
+        </button>
+        <button class="d-pad-btn right" id="btn-right" aria-label="Mover para direita">
+          <img src="./assets/right.svg" alt="Direita" width="40" height="40">
+        </button>
+        <button class="d-pad-btn down" id="btn-down" aria-label="Mover para baixo">
+          <img src="./assets/down.svg" alt="Baixo" width="40" height="40">
+        </button>
+      </div>
 
-  </div>
-  <script src="./game.js"></script>
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="btn btn-secondary" id="btn-reset" aria-label="Reiniciar jogo">
+          <span>↺</span> Reiniciar
+        </button>
+        <button class="btn btn-primary" id="btn-pause" aria-label="Pausar jogo">
+          <span>⏸</span> Pausar
+        </button>
+      </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions">
+      <p>
+        <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> 
+        ou 
+        <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 
+        para mover • 
+        <kbd>P</kbd> para pausar • 
+        <kbd>R</kbd> para reiniciar
+      </p>
+    </div>
+  </main>
+
+  <script type="module" src="./dist/main.js"></script>
 </body>
-
 </html>
