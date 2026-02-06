@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Snake Game](./image.png)
+![Snake Game](./snake.png)
 
 **Jogo Snake clássico com design moderno, TypeScript e arquitetura profissional**
 
